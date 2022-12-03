@@ -4,15 +4,17 @@ const refs = {
     bodyEl: document.querySelector("body"),
 };
 
+let intervalID = null;
+
 refs.startBtn.addEventListener('click', () => {
-    bgChangeId = setInterval(() => {
+    intervalID = setInterval(() => {
         changeColor()
     }, 1000);
     refs.startBtn.setAttribute('disabled', true);
 });
 
 refs.stopBtn.addEventListener('click', () => {
-    clearInterval(bgChangeId);
+    clearInterval(intervalID);
     refs.startBtn.removeAttribute('disabled');
 })
 
